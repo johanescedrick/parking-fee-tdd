@@ -1,6 +1,4 @@
+_BASE_RATES = {"motorcycle": 2, "car": 5, "truck": 10}
+
 def calculate_parking_fee(vehicle_type, parking_duration, day_type, is_public_holiday):
-    if vehicle_type == "motorcycle":
-        return 2
-    elif vehicle_type == "car":
-        return 5
-    raise NotImplementedError
+    return _BASE_RATES[vehicle_type]
