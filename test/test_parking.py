@@ -25,3 +25,12 @@ def test_negative_duration_invalid():
 def test_unknown_day_type_invalid():
     with pytest.raises(ValueError):
         calculate_parking_fee("car", 2, "monday", False)
+
+def test_under_one_hour_is_free():
+    assert calculate_parking_fee("car", 0.5, "weekday", False) == 0
+
+def test_weekend_surcharge_car():
+    assert calculate_parking_fee("car", 2, "weekend", False) == 8
+
+def test_weekend_surcharge_truck():
+    assert calculate_parking_fee("truck", 2, "weekend", False) == 13
